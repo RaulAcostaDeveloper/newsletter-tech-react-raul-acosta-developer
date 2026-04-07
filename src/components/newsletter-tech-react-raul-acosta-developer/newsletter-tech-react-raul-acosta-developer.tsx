@@ -9,11 +9,13 @@ import { SuccessModal } from "./successModal";
 
 interface Props {
   apiKey?: string;
+  apiUrl?: string;
   disabled?: boolean;
 }
 
 export const NewsletterTechReactRaulAcostaDeveloper = ({
   apiKey,
+  apiUrl,
   disabled,
 }: Props) => {
   const [email, setEmail] = useState<string>("");
@@ -32,7 +34,7 @@ export const NewsletterTechReactRaulAcostaDeveloper = ({
     setSuccessCode("");
     setIsLoading(true);
     try {
-      const result = await postNewsletter(email, apiKey);
+      const result = await postNewsletter(email, apiKey, apiUrl);
       setSuccessMessage(result.message);
       setSuccessCode(result.coupon_text);
       setIsLoading(false);

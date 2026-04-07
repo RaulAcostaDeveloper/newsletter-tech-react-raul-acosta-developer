@@ -4,9 +4,14 @@ interface NewsletterResponse {
   coupon_text?: string;
 }
 
+const DEFAULT_NEWSLETTER_ENDPOINT = import.meta.env.DEV
+  ? "/api/newsletter"
+  : "https://neubox.com/newsletter";
+
 export async function postNewsletter(
   email: string,
   apiKey?: string,
+  apiUrl?: string,
 ): Promise<NewsletterResponse> {
   const body = new URLSearchParams({
     newsletter_user_email: email.trim(),
@@ -14,9 +19,7 @@ export async function postNewsletter(
     checkbox_accept_mb: "on",
   });
 
-  const endpoint = import.meta.env.DEV
-    ? "/api/newsletter"
-    : "https://neubox.com/newsletter";
+  const endpoint = apiUrl?.trim() || DEFAULT_NEWSLETTER_ENDPOINT;
 
   const response = await fetch(endpoint, {
     method: "POST",

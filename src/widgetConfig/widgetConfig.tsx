@@ -26,6 +26,7 @@ class NewsletterWidgetElement extends HTMLElement {
 
   private mount() {
     const apiKey = this.getAttribute("api-key") ?? undefined;
+    const apiUrl = this.getAttribute("api-url") ?? undefined;
     const disabled = this.hasAttribute("disabled");
 
     if (!this.shadow) {
@@ -49,6 +50,7 @@ class NewsletterWidgetElement extends HTMLElement {
         <NewsletterTechReactRaulAcostaDeveloper
           apiKey={apiKey}
           disabled={disabled}
+          apiUrl={apiUrl}
         />
       </React.StrictMode>,
     );
