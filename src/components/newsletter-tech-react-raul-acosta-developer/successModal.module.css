@@ -1,0 +1,138 @@
+.container {
+  position: fixed;
+  width: 100vh;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+}
+
+.insideModal {
+  min-width: 300px;
+  width: 85vw;
+}
+
+.header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(40, 50, 65);
+}
+
+.header h3 {
+  color: white;
+  margin-right: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.header button {
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  height: 25px;
+  width: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  appearance: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.header button p {
+  position: relative;
+  bottom: 2px;
+}
+
+.bottom {
+  background-color: rgb(240, 240, 240);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.middle {
+  background-color: white;
+}
+
+.successImgContainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.middle p {
+  text-align: center;
+  margin: 0 12px;
+}
+
+.middle .padding {
+  padding: 10px 0;
+}
+
+.middle .center {
+  display: flex;
+  justify-content: center;
+}
+
+.accButton {
+  background-color: rgb(45, 145, 205);
+  border-radius: 4px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 60px;
+}
+
+.containerSuccessCode {
+  border: 1px dashed rgb(45, 145, 205);
+  padding: 15px;
+  display: flex;
+  border-radius: 4px;
+}
+
+.containerSuccessCode .code {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(45, 145, 205);
+}
+
+.containerSuccessCode button {
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(240, 145, 25);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.containerSuccessCode button img {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  rotate: 180deg;
+}
+
+@media (min-width: 768px) {
+  .header h3 {
+    font-size: 25px;
+  }
+
+  .bottom {
+    font-size: 16px;
+    padding: 15px 40px;
+  }
+}

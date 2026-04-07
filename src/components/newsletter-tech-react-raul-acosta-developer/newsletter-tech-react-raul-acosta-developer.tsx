@@ -20,7 +20,7 @@ export const NewsletterTechReactRaulAcostaDeveloper = ({
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const [successMessage, setSuccessMessage] = useState<string>();
-  const [successCode, setSuccessCode] = useState<string>("fsafas");
+  const [successCode, setSuccessCode] = useState<string>();
 
   const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -120,7 +120,12 @@ export const NewsletterTechReactRaulAcostaDeveloper = ({
             </div>
           )}
 
-          {successCode && <SuccessModal successCode={successCode} />}
+          {successCode && (
+            <SuccessModal
+              successCode={successCode}
+              closeModal={() => setSuccessCode("")}
+            />
+          )}
         </div>
       )}
     </>
