@@ -1,0 +1,174 @@
+.container {
+  background-color: rgb(45, 60, 80);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.mainTitle {
+  width: 100%;
+  text-align: center;
+  margin: 20px 10px;
+  color: white;
+}
+
+.containerButton,
+.containerInput {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.containerButton button,
+.falseInput {
+  width: 80%;
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+}
+
+.containerButton button {
+  margin-top: 10px;
+  font-weight: bold;
+  background-color: rgb(45, 146, 208);
+  color: rgb(223, 217, 211);
+}
+
+.buttonDissabled button {
+  background-color: rgb(119, 126, 133);
+  color: rgb(166, 173, 180);
+}
+
+.falseInput {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.falseInput input {
+  /* Real input */
+  border: none;
+  width: 90%;
+  padding: 5px;
+  font-size: 10px;
+  outline: none;
+}
+
+.falseInput input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.inputIcon {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  margin: 0 10px;
+}
+
+.checkboxContainer {
+  width: 80%;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  text-align: justify;
+  font-size: 10px;
+  color: white;
+}
+
+.checkboxContainer input {
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+.checkboxContainer input:checked {
+  accent-color: rgb(251, 188, 5);
+}
+
+.loadingContainer {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.errorContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.errorMessage {
+  padding: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 80%;
+  background-color: rgb(220, 75, 80);
+  border-radius: 8px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+@media (min-width: 425px) {
+  .falseInput input {
+    font-size: 14px;
+  }
+  .checkboxContainer {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .containerInput {
+    position: relative;
+  }
+
+  .falseInput {
+    width: 80%;
+    padding-right: 170px; /* espacio para el botón */
+    box-sizing: border-box;
+  }
+
+  .falseInput input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .containerButton {
+    position: relative;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .containerButton button {
+    position: absolute;
+    top: -46px; /* sube el botón para que quede dentro visualmente */
+    right: 11%; /* alineado con el width: 80% */
+    width: 220px;
+    height: 40px;
+    margin-top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .errorMessage {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .falseInput input {
+    font-size: 16px;
+  }
+  .checkboxContainer {
+    font-size: 16px;
+  }
+
+  .errorMessage {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,84 @@
+/* index.css o globals.css */
+
+/* 1) Modelo de caja consistente */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2) Reset básico */
+* {
+  margin: 0;
+}
+
+/* 3) Base del documento */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* 4) Multimedia predecible */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5) Formularios heredan tipografía */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 6) Evitar overflow raro en textos */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 7) Listas solo si quieres resetearlas globalmente */
+ul,
+ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+/* 8) Links sin estilos agresivos */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 9) Respeto a accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
