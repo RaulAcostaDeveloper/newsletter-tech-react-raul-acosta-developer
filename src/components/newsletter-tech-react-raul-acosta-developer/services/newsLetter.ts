@@ -1,13 +1,15 @@
 interface NewsletterResponse {
   error: boolean;
   message: string;
+  coupon_text?: string;
 }
 
 export async function postNewsletter(
   email: string,
+  apiKey?: string,
 ): Promise<NewsletterResponse> {
   const body = new URLSearchParams({
-    newsletter_user_email: email,
+    newsletter_user_email: email.trim(),
     checkbox_accept: "on",
     checkbox_accept_mb: "on",
   });
@@ -21,8 +23,7 @@ export async function postNewsletter(
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
       Accept: "application/json",
-      "X-Newsletter-Api-Key":
-        "6f897086c76602ede819e109eeeb0ff43f4b42212a80b4d48d3bf1fe6d6d8b40",
+      "X-Newsletter-Api-Key": apiKey ?? "",
     },
     body: body.toString(),
   });

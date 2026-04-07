@@ -99,7 +99,7 @@
   margin-top: 10px;
   font-weight: bold;
   background-color: rgb(45, 146, 208);
-  color: rgb(223, 217, 211);
+  color: white;
 }
 
 .buttonDissabled button {
@@ -159,13 +159,15 @@
   color: white;
 }
 
-.errorContainer {
+.errorContainer,
+.successContainer {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.errorMessage {
+.errorMessage,
+.successMessage {
   padding: 10px;
   display: flex;
   justify-content: left;
@@ -176,6 +178,11 @@
   color: white;
   font-size: 10px;
   font-weight: bold;
+}
+
+.successMessage {
+  background-color: rgb(240, 145, 25);
+  color: white;
 }
 
 @media (min-width: 425px) {

@@ -5,6 +5,7 @@ import { isValidEmail } from "./utils/validEmail";
 import { postNewsletter } from "./services/newsLetter";
 import mailOrange from "./assets/mail_orange.png";
 import mailWhite from "./assets/mail_white.png";
+import { SuccessModal } from "./successModal";
 
 interface Props {
   apiKey?: string;
@@ -12,24 +13,28 @@ interface Props {
 }
 
 export const NewsletterTechReactRaulAcostaDeveloper = ({
-  // apiKey,
+  apiKey,
   disabled,
 }: Props) => {
   const [email, setEmail] = useState<string>("");
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
-  // const [success, setSuccess] = useState<string>();
+  const [successMessage, setSuccessMessage] = useState<string>();
+  const [successCode, setSuccessCode] = useState<string>("fsafas");
+
   const [error, setError] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onPost = async (): Promise<void> => {
+    // Normalize
+    setError("");
+    setSuccessMessage("");
+    setSuccessCode("");
+    setIsLoading(true);
     try {
-      setError("");
-      setIsLoading(true);
-      const result = await postNewsletter(email);
-      // setSuccess(result.message);
-      console.log("result ", result); // TO DO
-
+      const result = await postNewsletter(email, apiKey);
+      setSuccessMessage(result.message);
+      setSuccessCode(result.coupon_text);
       setIsLoading(false);
     } catch (error) {
       if (error instanceof Error) {
@@ -101,6 +106,21 @@ export const NewsletterTechReactRaulAcostaDeveloper = ({
               </div>
             </div>
           )}
+
+          {successMessage && (
+            <div className={styles.successContainer}>
+              <div className={styles.successMessage}>
+                <img
+                  src={mailWhite}
+                  alt="Mail white"
+                  className={styles.inputIcon}
+                />
+                <p>{successMessage}</p>
+              </div>
+            </div>
+          )}
+
+          {successCode && <SuccessModal successCode={successCode} />}
         </div>
       )}
     </>
