@@ -96,6 +96,119 @@ En plataformas donde se pueda editar el HTML directamente, se debe:
   api-url="https://neubox.com/newsletter"
 ></newsletter-tech-react-raul-acosta-developer>
 ```
+### Uso en WordPress
+
+En WordPress, lo ideal es cargar el script una sola vez, por ejemplo desde el tema o mediante un bloque/widget HTML personalizado.
+
+Opción 1: agregar el script en el tema
+
+Se puede registrar en functions.php para evitar cargarlo manualmente varias veces:
+
+```
+function load_newsletter_widget_script() {
+    wp_enqueue_script(
+        'newsletter-widget',
+        'https://pub-a635f9262d484fcb9e195c1ee4daa37c.r2.dev/1.0.0/NewsletterTechReactRaulAcostaDeveloper.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'load_newsletter_widget_script');
+```
+
+Opción 2: usar un bloque HTML personalizado
+
+Si el sitio permite agregar HTML personalizado, basta con:
+
+Asegurarse de que el script ya se cargó globalmente.
+
+Insertar el componente donde se quiera mostrar.
+
+Recomendación: no insertar el <script> dentro de cada bloque o página si ya fue cargado desde el tema.
+
+### Uso en PHP
+
+En un proyecto PHP tradicional, se recomienda cargar el script en el layout principal o en el archivo compartido de encabezado/pie, para que esté disponible en toda la aplicación.
+
+Ejemplo en una plantilla PHP
+
+```
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newsletter Widget</title>
+  </head>
+  <body>
+    <script src="https://pub-a635f9262d484fcb9e195c1ee4daa37c.r2.dev/1.0.0/NewsletterTechReactRaulAcostaDeveloper.js"></script>
+
+    <newsletter-tech-react-raul-acosta-developer
+      api-key="1234"
+      api-url="https://neubox.com/newsletter"
+    ></newsletter-tech-react-raul-acosta-developer>
+  </body>
+</html>
+```
+
+Ejemplo usando variables de PHP
+
+```
+<?php
+  $apiKey = "1234";
+  $apiUrl = "https://neubox.com/newsletter";
+?>
+
+<newsletter-tech-react-raul-acosta-developer
+  api-key="<?php echo htmlspecialchars($apiKey, ENT_QUOTES, 'UTF-8'); ?>"
+  api-url="<?php echo htmlspecialchars($apiUrl, ENT_QUOTES, 'UTF-8'); ?>"
+></newsletter-tech-react-raul-acosta-developer>
+```
+
+### Uso en Laravel
+
+En Laravel, lo ideal es cargar el script una sola vez desde un layout Blade, por ejemplo en resources/views/layouts/app.blade.php.
+
+1. Cargar el script en el layout
+
+```
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name') }}</title>
+  </head>
+  <body>
+    @yield('content')
+
+    <script src="https://pub-a635f9262d484fcb9e195c1ee4daa37c.r2.dev/1.0.0/NewsletterTechReactRaulAcostaDeveloper.js"></script>
+  </body>
+</html>
+```
+
+2. Usar el componente en una vista Blade
+```
+@extends('layouts.app')
+
+@section('content')
+  <newsletter-tech-react-raul-acosta-developer
+    api-key="1234"
+    api-url="https://neubox.com/newsletter"
+  ></newsletter-tech-react-raul-acosta-developer>
+@endsection
+```
+Ejemplo usando variables de entorno
+
+También puede configurarse con valores del archivo .env:
+
+```
+<newsletter-tech-react-raul-acosta-developer
+  api-key="{{ env('NEWSLETTER_API_KEY') }}"
+  api-url="{{ env('NEWSLETTER_API_URL', 'https://neubox.com/newsletter') }}"
+></newsletter-tech-react-raul-acosta-developer>
+```
 
 ### Uso en React
 
