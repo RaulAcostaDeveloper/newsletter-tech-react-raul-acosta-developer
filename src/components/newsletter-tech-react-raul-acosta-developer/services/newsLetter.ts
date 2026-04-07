@@ -12,7 +12,11 @@ export async function postNewsletter(
     checkbox_accept_mb: "on",
   });
 
-  const response = await fetch("https://neubox.com/newsletter", {
+  const endpoint = import.meta.env.DEV
+    ? "/api/newsletter"
+    : "https://neubox.com/newsletter";
+
+  const response = await fetch(endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -23,7 +27,6 @@ export async function postNewsletter(
     body: body.toString(),
   });
 
-  //   Handle Error & Success
   let data: NewsletterResponse;
 
   try {
@@ -40,6 +43,5 @@ export async function postNewsletter(
     throw new Error(data.message || "No fue posible suscribirte.");
   }
 
-  //   Success Error Handling
   return data;
 }

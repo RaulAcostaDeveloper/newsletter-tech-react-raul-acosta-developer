@@ -6,6 +6,15 @@ export default defineConfig({
   define: {
     "process.env.NODE_ENV": JSON.stringify("production"),
   },
+  server: {
+    proxy: {
+      "/api/newsletter": {
+        target: "https://neubox.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/newsletter/, "/newsletter"),
+      },
+    },
+  },
   build: {
     lib: {
       entry: "src/widgetConfig/widgetConfig.tsx",
