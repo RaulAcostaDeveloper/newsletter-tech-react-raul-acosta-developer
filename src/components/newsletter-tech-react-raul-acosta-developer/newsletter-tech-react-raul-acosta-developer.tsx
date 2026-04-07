@@ -3,6 +3,8 @@ import { useState } from "react";
 import styles from "./styles.module.css";
 import { isValidEmail } from "./utils/validEmail";
 import { postNewsletter } from "./services/newsLetter";
+import mailOrange from "./assets/mail_orange.png";
+import mailWhite from "./assets/mail_white.png";
 
 interface Props {
   apiKey?: string;
@@ -47,7 +49,7 @@ export const NewsletterTechReactRaulAcostaDeveloper = ({
           <div className={styles.containerInput}>
             <div className={styles.falseInput}>
               <img
-                src="mail_orange.png"
+                src={mailOrange}
                 alt="Mail orange"
                 className={styles.inputIcon}
               />
@@ -91,7 +93,7 @@ export const NewsletterTechReactRaulAcostaDeveloper = ({
             <div className={styles.errorContainer}>
               <div className={styles.errorMessage}>
                 <img
-                  src="mail_white.png"
+                  src={mailWhite}
                   alt="Mail white"
                   className={styles.inputIcon}
                 />

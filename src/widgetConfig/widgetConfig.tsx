@@ -30,8 +30,17 @@ class NewsletterWidgetElement extends HTMLElement {
 
     if (!this.shadow) {
       this.shadow = this.attachShadow({ mode: "open" });
+
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href =
+        "https://pub-a635f9262d484fcb9e195c1ee4daa37c.r2.dev/1.0.0/newsletter-tech-react-raul-acosta-developer.css";
+
       this.mountPoint = document.createElement("div");
+
+      this.shadow.appendChild(link);
       this.shadow.appendChild(this.mountPoint);
+
       this.root = ReactDOM.createRoot(this.mountPoint);
     }
 

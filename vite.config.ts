@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: "src/widgetConfig/widgetConfig.tsx",
       name: "NewsletterTechReactRaulAcostaDeveloper",
-      fileName: () => "widget.js",
+      fileName: () => "NewsletterTechReactRaulAcostaDeveloper.js",
       formats: ["iife"],
     },
     rollupOptions: {
